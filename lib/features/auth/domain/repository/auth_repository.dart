@@ -6,7 +6,8 @@ abstract interface class AuthRepository {
     required String firmName,
     required String email,
     required String password,
-    required String phoneNumber,
+    required String phoneNumber, 
+
   });
   Future<Either<Failure, String>> loginWithPhoneNumber({
     required String phoneNumber,

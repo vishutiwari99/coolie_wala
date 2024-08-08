@@ -7,31 +7,25 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1060043168989:android:968646a16ef019764b8f34",
-        "android_client_info": {
-          "package_name": "com.cooliewala"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB4ewgJY1zvJU-RoM8nrzms4lhSTEsOqLw"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:1060043168989:android:fb99dc22ef000e414b8f34",
         "android_client_info": {
           "package_name": "com.cooliewala.app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1060043168989-0u7id2oml6sagthocpci6fhc2neoesn7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cooliewala.app",
+            "certificate_hash": "0b562259f09f76c741ce69b3d12549ccf7da142f"
+          }
+        },
+        {
+          "client_id": "1060043168989-1jfoc8v2ejevi3argj9bvhdq2p3dt792.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyB4ewgJY1zvJU-RoM8nrzms4lhSTEsOqLw"
@@ -39,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060043168989-1jfoc8v2ejevi3argj9bvhdq2p3dt792.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1060043168989-edfgf7qh95vn9git2m6i8nmu7nrjcg54.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.coolieWala"
+              }
+            }
+          ]
         }
       }
     }

@@ -1,15 +1,31 @@
 import 'package:coolie_wala/core/theme/constants.dart';
 import 'package:coolie_wala/core/theme/theme.dart';
+import 'package:coolie_wala/features/auth/data/datasources/auth_firebase_data_source.dart';
+import 'package:coolie_wala/features/auth/data/repositories/auth_repository_impl.dart';
+import 'package:coolie_wala/features/auth/domain/usecases/user_signup.dart';
+import 'package:coolie_wala/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:coolie_wala/features/auth/presentation/pages/signup_page.dart';
 import 'package:coolie_wala/firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(
+          create: (context) => AuthBloc(
+              userSignup: UserSignup(AuthRepositoryImpl(
+                  AuthFirebaseDataSourceImpl(firebaseAuth)))))
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
