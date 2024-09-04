@@ -1,35 +1,39 @@
-part of 'auth_bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
+import '../../domain/entities/user.dart';
+
+abstract class AuthState extends Equatable {
+  @override
+  List<Object?> get props => [];
+}
+
+class AuthInitial extends AuthState {}
+
+class AuthLoading extends AuthState {}
 
 @immutable
-sealed class AuthState extends Equatable {
-  const AuthState();
-  @override
-  List<Object> get props => [];
-}
-
-final class AuthInitial extends AuthState {}
-
-final class AuthLoading extends AuthState {}
-
-final class AuthSuccess extends AuthState {
-  final String uid;
-  const AuthSuccess(this.uid);
-}
-
-final class AuthFailure extends AuthState {
-  final String message;
-
-  const AuthFailure(this.message);
-
-  @override
-  List<Object> get props => [message];
-}
-
-class AuthOtpSent extends AuthState {
+class OtpSent extends AuthState {
   final String verificationId;
 
-  const AuthOtpSent(this.verificationId);
+  OtpSent({required this.verificationId});
+}
+
+class Authenticated extends AuthState {
+  final UserEntity user;
+
+  Authenticated({required this.user});
 
   @override
-  List<Object> get props => [verificationId];
+  List<Object?> get props => [user];
+}
+
+class AddressSaved extends AuthState {}
+
+class AuthError extends AuthState {
+  final String message;
+
+  AuthError({required this.message});
+
+  @override
+  List<Object?> get props => [message];
 }
